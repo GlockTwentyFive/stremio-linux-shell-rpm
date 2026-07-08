@@ -1,11 +1,11 @@
 Name:           stremio-linux-shell
 Version:        1.1.2
-Release:        1%{?dist}
+Release:        2.main%{?dist}
 Summary:        Native GTK4 client for Stremio on Linux
 
 License:        GPL-3.0-only
 URL:            https://github.com/Stremio/stremio-linux-shell
-Source0:        https://github.com/Stremio/stremio-linux-shell/archive/refs/tags/v%{version}.tar.gz
+Source0:        https://github.com/Stremio/stremio-linux-shell/archive/refs/heads/main.tar.gz
 Source1:        stremio.desktop
 Source2:        stremio.sh
 
@@ -24,7 +24,7 @@ Requires:       nodejs24
 Native GTK4 + libadwaita + WebKitGTK + libmpv shell for Stremio on Linux.
 
 %prep
-%autosetup -n stremio-linux-shell-%{version}
+%autosetup -n stremio-linux-shell-main
 
 %build
 cargo build --release
@@ -41,7 +41,7 @@ install -Dm644 data/icons/symbolic.png \
     %{buildroot}%{_datadir}/icons/hicolor/symbolic/apps/com.stremio.Stremio-symbolic.png
 
 install -Dm644 %{SOURCE1} %{buildroot}%{_datadir}/applications/stremio.desktop
-install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/stremio.sh
+install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/stremio
 
 desktop-file-validate %{buildroot}%{_datadir}/applications/stremio.desktop
 
@@ -51,8 +51,11 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/stremio.desktop
 %{_datadir}/icons/hicolor/scalable/apps/com.stremio.Stremio.svg
 %{_datadir}/icons/hicolor/symbolic/apps/com.stremio.Stremio-symbolic.png
 %{_datadir}/applications/stremio.desktop
-%{_bindir}/stremio.sh
+%{_bindir}/stremio
 
 %changelog
 * Wed Jul 08 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-1
 - Initial package
+
+* Wed Jul 08 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-2.main
+- Switched to building from the latest commit instead of latest release
