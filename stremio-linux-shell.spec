@@ -1,6 +1,6 @@
 Name:           stremio-linux-shell
 Version:        1.1.2
-Release:        3.main%{?dist}
+Release:        4.main%{?dist}
 Summary:        Native GTK4 client for Stremio on Linux
 
 License:        GPL-3.0-only
@@ -44,7 +44,7 @@ install -Dm644 data/server.js \
 
 # Desktop entry
 install -Dm644 %{SOURCE1} \
-    %{buildroot}%{_datadir}/applications/stremio.desktop
+    %{buildroot}%{_datadir}/applications/com.stremio.Stremio.desktop
 
 # Launcher wrapper
 install -Dm755 %{SOURCE2} \
@@ -78,7 +78,7 @@ install -Dm644 po/fr/LC_MESSAGES/stremio.mo \
 
 %check
 desktop-file-validate \
-    %{buildroot}%{_datadir}/applications/stremio.desktop
+    %{buildroot}%{_datadir}/applications/com.stremio.Stremio.desktop
 
 appstreamcli validate \
     %{buildroot}%{_metainfodir}/com.stremio.Stremio.metainfo.xml
@@ -92,7 +92,7 @@ appstreamcli validate \
 %{_libexecdir}/stremio/stremio
 %{_libexecdir}/stremio/server.js
 
-%{_datadir}/applications/stremio.desktop
+%{_datadir}/applications/com.stremio.Stremio.desktop
 
 %{_datadir}/icons/hicolor/scalable/apps/com.stremio.Stremio.svg
 %{_datadir}/icons/hicolor/symbolic/apps/com.stremio.Stremio-symbolic.png
@@ -113,3 +113,6 @@ appstreamcli validate \
 - Install AppStream metadata
 - Install translations
 - Validate desktop entry and AppStream metadata
+
+* Wed, 08 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-4.main
+- Fixed desktop file name
