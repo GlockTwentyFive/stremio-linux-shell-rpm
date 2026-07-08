@@ -18,7 +18,7 @@ BuildRequires:  mpv-devel
 BuildRequires:  libepoxy-devel
 BuildRequires:  desktop-file-utils
 
-Requires:       nodejs
+Requires:       nodejs24
 
 %description
 Native GTK4 + libadwaita + WebKitGTK + libmpv shell for Stremio on Linux.
