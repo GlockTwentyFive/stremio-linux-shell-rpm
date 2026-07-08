@@ -22,7 +22,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  glib2
 BuildRequires:  appstream
 
-Requires:       nodejs24
+Requires:       nodejs
 
 %description
 Native GTK4 + libadwaita + WebKitGTK + libmpv shell for Stremio on Linux.
@@ -36,7 +36,7 @@ cargo build --release
 %install
 # Main executable
 install -Dm755 target/release/stremio-linux-shell \
-    %{buildroot}%{_libexecdir}/stremio/stremio-linux-shell
+    %{buildroot}%{_libexecdir}/stremio/stremio
 
 # Node.js backend
 install -Dm644 data/server.js \
@@ -69,6 +69,13 @@ install -Dm644 %{SOURCE3} \
 install -Dm644 data/com.stremio.Stremio.metainfo.xml \
     %{buildroot}%{_metainfodir}/com.stremio.Stremio.metainfo.xml
 
+# Translations
+install -Dm644 po/es/LC_MESSAGES/stremio.mo \
+    %{buildroot}%{_datadir}/locale/es/LC_MESSAGES/stremio.mo
+
+install -Dm644 po/fr/LC_MESSAGES/stremio.mo \
+    %{buildroot}%{_datadir}/locale/fr/LC_MESSAGES/stremio.mo
+
 %check
 desktop-file-validate \
     %{buildroot}%{_datadir}/applications/stremio.desktop
@@ -82,7 +89,7 @@ appstreamcli validate \
 %{_bindir}/stremio
 
 %dir %{_libexecdir}/stremio
-%{_libexecdir}/stremio/stremio-linux-shell
+%{_libexecdir}/stremio/stremio
 %{_libexecdir}/stremio/server.js
 
 %{_datadir}/applications/stremio.desktop
@@ -94,10 +101,15 @@ appstreamcli validate \
 %{_datadir}/dbus-1/services/com.stremio.Stremio.service
 %{_metainfodir}/com.stremio.Stremio.metainfo.xml
 
+%{_datadir}/locale/es/LC_MESSAGES/stremio.mo
+%{_datadir}/locale/fr/LC_MESSAGES/stremio.mo
+
 %changelog
-* Wed Jul 08 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-3.main
+* Wed, 08 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-3.main
 - Build from upstream main branch
+- Rename installed executable to stremio
 - Install GSettings schema
 - Install D-Bus service
 - Install AppStream metadata
+- Install translations
 - Validate desktop entry and AppStream metadata
