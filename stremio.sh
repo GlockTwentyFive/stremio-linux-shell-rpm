@@ -6,5 +6,6 @@ if [ -e /dev/nvidia0 ]; then
 fi
 
 export SERVER_PATH=/usr/libexec/stremio/server.js
+export LC_NUMERIC=C
 
 exec /usr/libexec/stremio/stremio-linux-shell "$@"
