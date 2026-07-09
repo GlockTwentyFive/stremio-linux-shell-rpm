@@ -1,12 +1,12 @@
 Name:           stremio-linux-shell
 Version:        1.1.2
-Release:        4.main%{?dist}
+Release:        5%{?dist}
 Summary:        Native GTK4 client for Stremio on Linux
 
 License:        GPL-3.0-only
 URL:            https://github.com/Stremio/stremio-linux-shell
 
-Source0:        https://github.com/Stremio/stremio-linux-shell/archive/refs/heads/main.tar.gz
+Source0:        https://github.com/Stremio/stremio-linux-shell/archive/refs/tags/v%{version}.tar.gz
 Source1:        stremio.desktop
 Source2:        stremio.sh
 Source3:        com.stremio.Stremio.service
@@ -28,17 +28,17 @@ Requires:       nodejs
 Native GTK4 + libadwaita + WebKitGTK + libmpv shell for Stremio on Linux.
 
 %prep
-%autosetup -n stremio-linux-shell-main
+%autosetup -n stremio-linux-shell-%{version}
 
 %build
 cargo build --release
 
 %install
-# Main executable
+# Stremio binary
 install -Dm755 target/release/stremio-linux-shell \
     %{buildroot}%{_libexecdir}/stremio/stremio
 
-# Node.js backend
+# Stremio server
 install -Dm644 data/server.js \
     %{buildroot}%{_libexecdir}/stremio/server.js
 
@@ -46,7 +46,7 @@ install -Dm644 data/server.js \
 install -Dm644 %{SOURCE1} \
     %{buildroot}%{_datadir}/applications/com.stremio.Stremio.desktop
 
-# Launcher wrapper
+# Launcher wrapper script
 install -Dm755 %{SOURCE2} \
     %{buildroot}%{_bindir}/stremio
 
@@ -116,3 +116,6 @@ appstreamcli validate \
 
 * Wed, 08 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-4.main
 - Fixed desktop file name
+
+*Thursday, 09 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-5
+- Switched back to building from latest release
