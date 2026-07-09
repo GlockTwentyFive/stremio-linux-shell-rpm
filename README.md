@@ -10,4 +10,7 @@ This repository contains only the packaging files used to build RPMs via Fedora 
 - Download the app - `sudo dnf install stremio-linux-shell`
 
 ### Troubleshooting
+
+Only for GNOME users - Make sure you have tray icons extension installed, if you don't have one, install it using this command `sudo dnf install gnome-shell-extension-appindicator` and then enable the extension from the gnome extensions app.
+
 The app has been tested on Fedora 44 and it works without any issues, if the app fails to start for any reason then try opening it from the terminal by executing the command `stremio` and copy the logs and open an issue here if it fails.
