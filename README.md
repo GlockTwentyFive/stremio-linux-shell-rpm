@@ -9,6 +9,8 @@ This repository contains only the packaging files used to build RPMs via Fedora 
 - Enable the copr repo - `sudo dnf copr enable chronosxbt/stremio-linux-shell`
 - Download the app - `sudo dnf install stremio-linux-shell`
 
+COPR Link - https://copr.fedorainfracloud.org/coprs/chronosxbt/stremio-linux-shell/
+
 ### Troubleshooting
 
 Only for GNOME users - Make sure you have tray icons extension installed, if you don't have one, install it using this command `sudo dnf install gnome-shell-extension-appindicator` and then enable the extension from the gnome extensions app.
