@@ -1,5 +1,5 @@
 Name:           stremio-linux-shell
-Version:        1.1.3
+Version:        1.1.4
 Release:        1%{?dist}
 Summary:        Native GTK4 client for Stremio on Linux
 
@@ -111,8 +111,13 @@ appstreamcli validate \
 * Wed, 08 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-4.main
 - Fixed desktop file name
 
-*Thursday, 09 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-5
+* Thursday, 09 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.2-5
 - Switched back to building from latest release
 
-*Tuesday, 21 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.3-1
+* Tuesday, 21 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.3-1
 - upstream v1.1.3 release
+
+* Saturday, 25 July 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.4-1
+- Fix screen blank behavior during playback
+- Fix gamepad not recognized
+- Fix server process running after main one crashed
