@@ -1,6 +1,6 @@
 Name:           stremio-linux-shell
-Version:        1.1.4
-Release:        2%{?dist}
+Version:        1.2.0
+Release:        1%{?dist}
 Summary:        Native GTK4 client for Stremio on Linux
 
 License:        GPL-3.0-only
@@ -124,3 +124,6 @@ appstreamcli validate \
 
 * Sun Jul 26 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.1.4-2
 - Fixed date format in spec file
+
+* Thu Aug 06 2026 GlockTwentyFive <redninjaxbt@gmail.com> - 1.2.0-1
+- Upstream v1.2.0 release
